@@ -1,0 +1,301 @@
+/* ===== StarMystic – Global Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body.sm-body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1b1b3a 0%, #050514 55%, #000000 100%);
+  color: #f4f4ff;
+  direction: rtl;
+}
+
+/* ===== Header & Nav ===== */
+.sm-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  background: rgba(3, 3, 15, 0.92);
+  border-bottom: 1px solid rgba(130, 180, 255, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.sm-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.sm-logo-main {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.sm-logo-sub {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.sm-nav {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.sm-nav a {
+  text-decoration: none;
+  color: #d6e4ff;
+  position: relative;
+  padding-bottom: 0.1rem;
+}
+
+.sm-nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease-out;
+  background: linear-gradient(90deg, #ffcc66, #66ccff);
+}
+
+.sm-nav a:hover::after,
+.sm-nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* ===== Hero ===== */
+.sm-hero {
+  min-height: 70vh;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+  padding: 3rem 8vw;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.sm-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.4rem;
+}
+
+.sm-hero-content h2 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #d0dbff;
+  margin-bottom: 1rem;
+}
+
+.sm-hero-content p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 34rem;
+  color: #c9d6ff;
+}
+
+.sm-hero-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sm-btn {
+  border-radius: 999px;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.15s;
+}
+
+.sm-btn-primary {
+  background: linear-gradient(135deg, #ffcc66, #ff7ad9);
+  color: #261015;
+  box-shadow: 0 0 22px rgba(255, 185, 120, 0.4);
+}
+
+.sm-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(255, 185, 120, 0.6);
+}
+
+.sm-btn-ghost {
+  background: transparent;
+  border-color: rgba(155, 195, 255, 0.5);
+  color: #e2ecff;
+}
+
+.sm-btn-ghost:hover {
+  background: rgba(9, 30, 82, 0.65);
+}
+
+.sm-hero-meta {
+  margin-top: 1.1rem;
+  font-size: 0.8rem;
+  color: #a9b6e8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+/* ===== Hero Orbit Visual ===== */
+.sm-hero-orbit {
+  position: relative;
+  min-height: 260px;
+}
+
+.orbit {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px dashed rgba(160, 205, 255, 0.35);
+  animation: spin 38s linear infinite;
+}
+
+.orbit-outer {
+  inset: 0;
+}
+
+.orbit-middle {
+  inset: 14%;
+  animation-duration: 26s;
+}
+
+.orbit-inner {
+  inset: 28%;
+  animation-duration: 18s;
+}
+
+.sm-hero-star-core {
+  position: absolute;
+  inset: 40%;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, #ffe4a8 0%, #ff7ad9 35%, transparent 70%);
+  box-shadow:
+    0 0 38px rgba(255, 210, 140, 0.7),
+    0 0 80px rgba(140, 200, 255, 0.65);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Sections ===== */
+.sm-section {
+  padding: 2.5rem 8vw;
+}
+
+.sm-section-alt {
+  background: radial-gradient(circle at center, rgba(30, 50, 90, 0.55), rgba(3, 3, 11, 0.96));
+}
+
+.sm-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sm-section-intro {
+  max-width: 40rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #d0dcff;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Grid & Cards ===== */
+.sm-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.sm-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sm-card {
+  background: radial-gradient(circle at top, rgba(55, 90, 150, 0.85), rgba(5, 5, 20, 0.98));
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(180, 215, 255, 0.45);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
+}
+
+.sm-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.sm-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #e3e8ff;
+}
+
+/* ===== Placeholder Panel ===== */
+.sm-placeholder-box {
+  border-radius: 1rem;
+  border: 1px dashed rgba(204, 225, 255, 0.7);
+  padding: 1.25rem;
+  background: rgba(4, 10, 30, 0.9);
+  font-size: 0.9rem;
+  color: #d6e1ff;
+}
+
+/* ===== Footer ===== */
+.sm-footer {
+  padding: 1rem 8vw 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9ca9dd;
+  border-top: 1px solid rgba(110, 150, 220, 0.5);
+  background: #02030b;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .sm-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sm-hero-orbit {
+    order: -1;
+    min-height: 200px;
+  }
+  .sm-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .sm-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sm-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sm-grid-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
